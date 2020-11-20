@@ -1,0 +1,23 @@
+{
+  "name": "evoxLuizaAPI",
+  "version": "1.0.0",
+  "description": "API for CRUD application",
+  "main": "src/server.js",
+  "repository": "https://github.com/IKrehan/evoxLuiza-API",
+  "author": "IKrehan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
+  }
+}
