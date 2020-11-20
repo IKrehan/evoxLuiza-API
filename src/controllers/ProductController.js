@@ -7,6 +7,7 @@ module.exports = {
         const { name, price, url_image } = req.body;
 
         const product = await Product.create({ name, price, url_image })
+        product.update({ url: req.protocol  + "://" + req.get('host') + "/product/" + product.id })
 
         return res.json(product);
     },

@@ -6,7 +6,8 @@ class Product extends Model {
         super.init({
             name: DataTypes.STRING,
             price: DataTypes.FLOAT,
-            url_image: DataTypes.STRING, 
+            url_image: DataTypes.STRING,
+            url: DataTypes.STRING
         }, {
             sequelize
         })
