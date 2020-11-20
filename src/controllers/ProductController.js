@@ -1,9 +1,15 @@
-const { update } = require('../models/Product');
 const Product = require('../models/Product');
 
+const { validationResult } = require('express-validator')
 
 module.exports = {
     async create(req, res) {
+        // Finds the validation errors in this request and wraps them in an object with handy functions
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
         const { name, price, url_image } = req.body;
 
         const product = await Product.create({ name, price, url_image })
