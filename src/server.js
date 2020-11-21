@@ -22,8 +22,5 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 5000;
-}
+let port = process.env.PORT || 5000;
 app.listen(port);

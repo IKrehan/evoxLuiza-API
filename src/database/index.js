@@ -1,9 +1,12 @@
 const Sequelize = require("sequelize");
-const dbConfig = require('../config/database');
+const { productionConfig, developmentConfig } = require('../config/database');
 
 const Product = require('../models/Product');
 
-const connection = new Sequelize(dbConfig);
+
+const isProduction = process.env.NODE_ENV === 'production'
+
+const connection = new Sequelize(isProduction ? productionConfig : developmentConfig);
 
 Product.init(connection);
 
