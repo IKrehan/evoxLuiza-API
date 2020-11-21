@@ -10,13 +10,20 @@ routes.post("/product", [
     body('name').isLength({ max: 255 }).trim(), 
     body('url_image').isLength({ max: 255 }).trim(),
     body('price').isFloat()
-    ], 
-    ProductController.create);
+    ], ProductController.create);
   
 routes.get("/product", ProductController.index);
+
 routes.get("/product/:id", ProductController.find);
-routes.post("/product/:id", ProductController.update);
+
 routes.delete("/product/:id", ProductController.delete);
+
+routes.post("/product/:id", [
+    body('name').isLength({ max: 255 }).trim(), 
+    body('url_image').isLength({ max: 255 }).trim(),
+    body('price').isFloat()
+    ],  ProductController.update);
+
 
 
 module.exports = routes;
