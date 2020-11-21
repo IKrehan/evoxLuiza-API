@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = require("./routes");
+const db = require('./database/index')
 
 const helmet = require('helmet');
 const compression = require('compression');
@@ -8,6 +9,9 @@ const rateLimit = require('express-rate-limit');
 require('./database');
 
 const app = express();
+
+
+db.sync()
 
 app.use(express.json());
 app.use(routes);
