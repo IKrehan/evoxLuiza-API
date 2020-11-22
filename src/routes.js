@@ -12,11 +12,13 @@ routes.post("/product", [
     body('price').isFloat()
     ], ProductController.create);
   
-routes.get("/product", [
-    body('query').isLength({ max: 255 }).trim(), 
-    ], ProductController.index);
+routes.get("/product", ProductController.index);
 
 routes.get("/product/:id", ProductController.find);
+
+routes.get("/search", [
+    body('query').isLength({ max: 255 }).trim(), 
+    ], ProductController.search);
 
 routes.delete("/product/:id", ProductController.delete);
 

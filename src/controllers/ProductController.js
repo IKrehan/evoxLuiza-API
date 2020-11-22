@@ -20,12 +20,12 @@ module.exports = {
     },
 
     async index(req, res) {
-        const { query } = req.body;
-
-        const product = await Product.findAll({
-            where: { name: { [Op.iLike]: '%' + query + '%' } }
+        const products = await Product.findAll({
+            order: [
+                ['id', 'ASC'],
+            ]
         });
-        return res.json(product)
+        return res.json(products);
     },
 
     async find(req, res) {
@@ -33,6 +33,14 @@ module.exports = {
         return res.json(product)
     },
 
+    async search(req, res) {
+        const { query } = req.body;
+
+        const product = await Product.findAll({
+            where: { name: { [Op.iLike]: '%' + query + '%' } }
+        });
+        return res.json(product)
+    },
 
     async update(req, res) {
         const product = await Product.findByPk(req.params.id);
