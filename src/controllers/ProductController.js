@@ -20,20 +20,6 @@ module.exports = {
     },
 
     async index(req, res) {
-        const products = await Product.findAll({
-            order: [
-                ['id', 'ASC'],
-            ]
-        });
-        return res.json(products);
-    },
-
-    async find(req, res) {
-        const product = await Product.findByPk(req.params.id)
-        return res.json(product)
-    },
-
-    async search(req, res) {
         const { query } = req.body;
 
         const product = await Product.findAll({
@@ -41,6 +27,12 @@ module.exports = {
         });
         return res.json(product)
     },
+
+    async find(req, res) {
+        const product = await Product.findByPk(req.params.id)
+        return res.json(product)
+    },
+
 
     async update(req, res) {
         const product = await Product.findByPk(req.params.id);
