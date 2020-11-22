@@ -1,5 +1,6 @@
 const Product = require('../models/Product');
 
+const { Op } = require('sequelize');
 const { validationResult } = require('express-validator')
 
 module.exports = {
@@ -29,6 +30,15 @@ module.exports = {
 
     async find(req, res) {
         const product = await Product.findByPk(req.params.id)
+        return res.json(product)
+    },
+
+    async search(req, res) {
+        const { query } = req.body;
+
+        const product = await Product.findAll({
+            where: { name: { [Op.iLike]: '%' + query + '%' } }
+        });
         return res.json(product)
     },
 
