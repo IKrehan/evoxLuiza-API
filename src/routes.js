@@ -16,7 +16,7 @@ routes.get("/product", ProductController.index);
 
 routes.get("/product/:id", ProductController.find);
 
-routes.get("/search", [
+routes.post("/search", [
     body('query').isLength({ max: 255 }).trim(), 
     ], ProductController.search);
 
