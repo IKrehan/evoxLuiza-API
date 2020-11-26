@@ -20,9 +20,13 @@ const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 30, // 5 requests,
 })
-
 app.use(limiter)
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://evox-luiza.vercel.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 app.use(compression());
 app.use(helmet());
 
