@@ -7,7 +7,8 @@
 
 ## Demo
 Aqui uma demo em funcionamento : [https://evox-luiza.vercel.app](https://evox-luiza.vercel.app)
-Obs: Para a visualização é necessário a desabilitação do CORS, é possível usar algumas extensões do navegador para isso.
+
+_Obs: Para a visualização é necessário a desabilitação do CORS, é possível usar algumas extensões do navegador para isso._
 
 
 ## Ferramentas
