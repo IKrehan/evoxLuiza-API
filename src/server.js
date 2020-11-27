@@ -22,16 +22,16 @@ const limiter = rateLimit({
 })
 app.use(limiter)
 
-// var corsOptions = {
-//   origin: '.',
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204
-// }
-app.use(cors());
-app.options('*', cors());
-app.use(compression());
+var corsOptions = {
+  origin: '*',
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}
+
 app.use(helmet());
+app.use(cors(corsOptions));
+app.use(compression());
 
 
 
