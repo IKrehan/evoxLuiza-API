@@ -28,7 +28,7 @@ var corsOptions = {
   preflightContinue: false,
   optionsSuccessStatus: 204
 }
-app.options("*", cors(corsOptions));
+app.use(cors({origin: '*'}));
 app.use(compression());
 app.use(helmet());
 
