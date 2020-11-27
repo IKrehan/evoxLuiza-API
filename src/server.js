@@ -34,7 +34,7 @@ app.all('/*', function(req, res, next) {
   next();
 });
 
-app.use(cors({origin: '*'}));
+// app.use(cors({origin: '*'}));
 app.use(compression());
 app.use(helmet());
 
